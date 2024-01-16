@@ -1,0 +1,19 @@
+version: "3.8"
+
+services:
+  test-db:
+    container_name: "test-db"
+    image: postgres:latest
+    environment:
+      - POSTGRES_DB=test_db
+      - POSTGRES_USER=test_user
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_INITDB_ARGS=--encoding=UTF-8 --locale=C
+    ports:
+      - ${TEST_DB_PORT:-5432}:5432
+    volumes:
+      - test_db_data:/var/lib/postgresql/data
+    restart: always
+
+volumes:
+  test_db_data:

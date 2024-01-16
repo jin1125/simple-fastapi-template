@@ -1,0 +1,41 @@
+[tool.poetry]
+name = "simple-fastapi-template"
+version = "0.1.0"
+description = ""
+authors = ["Jin <shogo.jinta@gmail.com>"]
+readme = "README.md"
+packages = [{include = "todo_backend"}]
+
+[tool.poetry.dependencies]
+python = "^3.12"
+fastapi = "^0"
+uvicorn = "^0.25.0"
+sqlalchemy = "^2.0.25"
+python-jose = {extras = ["cryptography"], version = "^3.3.0"}
+python-multipart = "^0.0.6"
+passlib = {extras = ["bcrypt"], version = "^1.7.4"}
+asyncpg = "^0.29.0"
+email-validator = "^2.1.0.post1"
+pydantic-settings = "^2.1.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest-asyncio = "^0.23.3"
+httpx = "^0.26.0"
+black = "^23.12.1"
+mypy = "^1.8.0"
+flake8 = "^7.0.0"
+isort = "^5.13.2"
+types-python-jose = "^3.3.4.20240106"
+types-passlib = "^1.7.7.20240106"
+alembic = "^1.13.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 79
+
+[tool.isort]
+profile = "black"
+line_length = 79

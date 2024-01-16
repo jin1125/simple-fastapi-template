@@ -1,0 +1,31 @@
+version: "3.8"
+
+services:
+  backend:
+    container_name: "backend"
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file:
+      - .env
+    ports:
+      - "${BACKEND_PORT:-8000}:8000"
+    volumes:
+      - .:/src
+    depends_on:
+      - db
+    restart: always
+
+  db:
+    container_name: "db"
+    image: postgres:latest
+    env_file:
+      - .env
+    ports:
+      - ${DB_PORT:-5432}:5432
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    restart: always
+
+volumes:
+  db_data:
