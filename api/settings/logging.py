@@ -2,7 +2,7 @@
 import logging
 
 
-def setup_logging():
+def setup_logging() -> None:
     """
     ロギングの設定
 
