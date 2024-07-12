@@ -9,7 +9,7 @@ from api.settings.logging import setup_logging
 
 setup_logging()
 
-app = FastAPI(
+app: FastAPI = FastAPI(
     title=settings.app_title,
     openapi_tags=constant.TAGS_METADATA,
     docs_url=settings.docs_url,
