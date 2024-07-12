@@ -13,7 +13,7 @@ from api.models import user as user_models
 from api.schemas import user as user_schemas
 from api.services import auth as auth_services
 
-logger = logging.getLogger(__name__)
+logger: logging.Logger = logging.getLogger(__name__)
 
 
 async def create_user(

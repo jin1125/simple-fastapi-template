@@ -9,7 +9,7 @@ from api.exceptions import status_4xx
 from api.models import todo as todo_models
 from api.schemas import todo as todo_schemas
 
-logger = logging.getLogger(__name__)
+logger: logging.Logger = logging.getLogger(__name__)
 
 
 async def create_todo(

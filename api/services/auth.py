@@ -14,7 +14,7 @@ from api.exceptions import status_4xx
 from api.models import user as user_models
 from api.settings import constant
 
-logger = logging.getLogger(__name__)
+logger: logging.Logger = logging.getLogger(__name__)
 
 pwd_context: CryptContext = CryptContext(
     schemes=constant.CRYPT_CONTEXT_SCHEMES,

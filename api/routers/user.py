@@ -10,7 +10,7 @@ from api.models import user as user_models
 from api.schemas import user as user_schemas
 from api.services import user as user_services
 
-logger = logging.getLogger(__name__)
+logger: logging.Logger = logging.getLogger(__name__)
 
 router: APIRouter = APIRouter(
     prefix="/user",
