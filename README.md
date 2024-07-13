@@ -10,7 +10,7 @@
 - Dockerコンテナを作成・起動
 
     ```shell
-    docker compose -f docker-compose.yml -f docker-compose.test.yml up -d
+    docker compose -f compose.yml -f compose.test.yml up -d
     ```
   
 - DBマイグレーションを実行
