@@ -113,7 +113,6 @@ def get_settings() -> Settings:
     """
     環境変数もしくはクラス変数を取得
 
-    - Settingsクラスをインスタンス化
     - .envの環境変数もしくはSettingsクラス変数を取得する
     - lru_cacheデコレータによって、Settingsクラスは1度だけインスタンス化される
 
