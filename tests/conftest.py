@@ -47,7 +47,7 @@ def event_loop() -> Generator:
 @pytest_asyncio.fixture(autouse=True)
 async def setup_database() -> AsyncGenerator:
     """
-    テスト用のデータベースをセットアップするフィクスチャ
+    テスト用のテーブルをセットアップするフィクスチャ
 
     - 自動で実行されるフィクスチャ
 
