@@ -74,7 +74,7 @@ class Settings(BaseSettings):
         """
         PostgreSQLへの非同期接続情報(URL)を取得
 
-        - createメソッドにてURLを生成
+        - URLを生成
 
         Returns:
             PostgreSQLへの非同期接続情報(URL)
