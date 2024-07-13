@@ -37,7 +37,7 @@ class Settings(BaseSettings):
         test_postgres_password: テスト用のPostgreSQLのパスワード
         test_postgres_port: テスト用のPostgreSQLのポート番号
         test_postgres_user: テスト用のPostgreSQLのユーザ名
-        redoc_url: ReDocのURL設定
+        redoc_url: ReDocのURL
         secret_key: jwtで使用するアルゴリズムに適したキー
         token_url: OAuth2PasswordBearerのtokenUrlパラメータに定義するURL
 
