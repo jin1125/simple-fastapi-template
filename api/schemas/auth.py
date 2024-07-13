@@ -11,8 +11,8 @@ class Token(base.BaseSchema):
     - Token本体に定義するスキーマ
 
     Attributes:
-        access_token: アクセストークン
-        token_type: トークンタイプ
+        access_token: アクセストークンのフィールド
+        token_type: トークンタイプのフィールド
     """
 
     access_token: str = Field(description="アクセストークン")

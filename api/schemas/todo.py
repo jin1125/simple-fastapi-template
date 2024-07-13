@@ -13,9 +13,9 @@ class TodoBase(base.BaseSchema):
     - Todo関連の共通スキーマの定義を行う(継承元)
 
     Attributes:
-        title: タイトル
-        detail: 詳細
-        due_date: 期限
+        title: タイトルのフィールド
+        detail: 詳細のフィールド
+        due_date: 期限のフィールド
     """
 
     title: str = Field(description="タイトル")
@@ -43,7 +43,10 @@ class TodoUpdate(base.BaseSchema):
     - Todoの更新時に定義するスキーマ
 
     Attributes:
-        done: 完了フラグ
+        title: タイトルのフィールド
+        detail: 詳細のフィールド
+        due_date: 期限のフィールド
+        done: 完了フラグのフィールド
 
     Note:
         TodoBaseクラスを継承
@@ -62,9 +65,9 @@ class Todo(TodoBase):
     - Todo本体に定義するスキーマ
 
     Attributes:
-        id: ID
-        done: 完了フラグ
-        user_id: ユーザーID(外部キー)
+        id: IDのフィールド
+        done: 完了フラグのフィールド
+        user_id: ユーザーID(外部キー)のフィールド
 
     Note:
         TodoBaseクラスを継承
