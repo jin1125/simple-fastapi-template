@@ -19,9 +19,9 @@ class Settings(BaseSettings):
         algorithm: jwtの署名で使用するアルゴリズム
         app_title: アプリのタイトル
         cors_credentials: Cookieの共有を許可するかどうか
-        cors_headers: クロスオリジンリクエストに対応するHTTPリクエストヘッダのリスト
-        cors_methods: クロスオリジンリクエストを許可するHTTPメソッドのリスト
-        cors_origins: クロスオリジンリクエストを許可するオリジンのリスト
+        cors_headers: クロスオリジンリクエストに対応するHTTPリクエストヘッダ
+        cors_methods: クロスオリジンリクエストを許可するHTTPメソッド
+        cors_origins: クロスオリジンリクエストを許可するオリジン
         db_echo: SQLのログを出力するかどうか
         db_port: DBのポート番号
         docs_url: SwaggerUIのURL
