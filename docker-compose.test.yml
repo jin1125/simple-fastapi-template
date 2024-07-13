@@ -1,5 +1,3 @@
-version: "3.8"
-
 services:
   test-db:
     container_name: "test-db"
