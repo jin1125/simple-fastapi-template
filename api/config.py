@@ -18,11 +18,11 @@ class Settings(BaseSettings):
         access_token_expire_minutes: アクセストークンの有効時間(分)
         algorithm: jwtの署名で使用するアルゴリズム
         app_title: アプリのタイトル
-        cors_credentials: Cookieの共有を許可するかどうか
+        cors_credentials: Cookieの共有を許可するか
         cors_headers: クロスオリジンリクエストに対応するHTTPリクエストヘッダ
         cors_methods: クロスオリジンリクエストを許可するHTTPメソッド
         cors_origins: クロスオリジンリクエストを許可するオリジン
-        db_echo: SQLのログを出力するかどうか
+        db_echo: SQLのログを出力するか
         db_port: DBのポート番号
         docs_url: SwaggerUIのURL
         postgres_db: PostgreSQLのデータベース名
@@ -31,7 +31,7 @@ class Settings(BaseSettings):
         postgres_password: PostgreSQLのパスワード
         postgres_port: PostgreSQLのポート番号
         postgres_user: PostgreSQLのユーザ名
-        test_db_echo: テスト時にSQLのログを出力するかどうか
+        test_db_echo: テスト時にSQLのログを出力するか
         test_postgres_db: テスト用のPostgreSQLのデータベース名
         test_postgres_host: テスト用のPostgreSQLのホスト名
         test_postgres_password: テスト用のPostgreSQLのパスワード
