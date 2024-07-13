@@ -28,7 +28,7 @@ async def get_db() -> AsyncGenerator:
     非同期データベースセッションを取得
 
     Yields:
-        非同期データベースセッション
+    - 非同期データベースセッション
     """
     async with async_session() as session:
         yield session

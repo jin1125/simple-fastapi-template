@@ -32,11 +32,11 @@ async def create_user(
     ユーザーを作成
 
     Args:
-        create_user_data: ユーザーを作成するための情報
-        db: 非同期のDBセッション
+    - create_user_data: ユーザーを作成するための情報
+    - db: 非同期のDBセッション
 
     Returns:
-        作成したユーザー
+    - 作成したユーザー
     """
     return await user_services.create_user(create_user_data, db)
 
@@ -53,10 +53,10 @@ async def read_user_me(
     ログインユーザーを取得
 
     Args:
-        user_me: ログインユーザー
+    - user_me: ログインユーザー
 
     Returns:
-        ログインユーザー
+    - ログインユーザー
     """
     if user_me:
         logger.info("ログインユーザーの取得に成功しました")
@@ -77,12 +77,12 @@ async def update_user(
     ログインユーザーを更新
 
     Args:
-        user_me: ログインユーザー
-        update_user_data: ログインユーザーを更新するための情報
-        db: 非同期のDBセッション
+    - user_me: ログインユーザー
+    - update_user_data: ログインユーザーを更新するための情報
+    - db: 非同期のDBセッション
 
     Returns:
-        ログインユーザー
+    - ログインユーザー
     """
     return await user_services.update_user(
         user_me,
@@ -105,7 +105,7 @@ async def delete_user(
     ログインユーザーを削除
 
     Args:
-        user_me: ログインユーザー
-        db: 非同期のDBセッション
+    - user_me: ログインユーザー
+    - db: 非同期のDBセッション
     """
     await user_services.delete_user(user_me, db)

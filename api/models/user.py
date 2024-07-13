@@ -17,12 +17,13 @@ class User(Base):
     - DBのテーブルを表すSQLAlchemy(ORM)モデルを定義
 
     Attributes:
-        __tablename__: テーブル名を定義
-        id: IDのカラム
-        username: ユーザー名のカラム
-        email: メールアドレスのカラム
-        hashed_password: ハッシュ化パスワードのカラム
-        todos: todosテーブルと関連付けするように指定
+    - __tablename__: テーブル名を定義
+
+    - id: IDのカラム
+    - username: ユーザー名のカラム
+    - email: メールアドレスのカラム
+    - hashed_password: ハッシュ化パスワードのカラム
+    - todos: todosテーブルと関連付けするように指定
     """
 
     __tablename__: str = "users"

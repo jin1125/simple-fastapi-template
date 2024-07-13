@@ -21,8 +21,8 @@ class UnauthorizedException(HTTPException):
         - detailがNoneの場合は、継承元クラスのデフォルト値が使用される
 
         Args:
-            detail: レスポンスボディのエラー詳細情報
-            headers: レスポンスヘッダーの追加情報
+        - detail: レスポンスボディのエラー詳細情報
+        - headers: レスポンスヘッダーの追加情報
         """
         super().__init__(
             status_code=status.HTTP_401_UNAUTHORIZED,
@@ -48,8 +48,8 @@ class NotFoundException(HTTPException):
         - detailがNoneの場合は、継承元クラスのデフォルト値が使用される
 
         Args:
-            detail: レスポンスボディのエラー詳細情報
-            headers: レスポンスヘッダーの追加情報
+        - detail: レスポンスボディのエラー詳細情報
+        - headers: レスポンスヘッダーの追加情報
         """
         super().__init__(
             status_code=status.HTTP_404_NOT_FOUND,

@@ -23,12 +23,12 @@ async def create_todo(
     - ログインユーザーのTodoを作成する
 
     Args:
-        create_todo_data: Todoを作成するための情報
-        user_id: ユーザーID
-        db: 非同期のDBセッション
+    - create_todo_data: Todoを作成するための情報
+    - user_id: ユーザーID
+    - db: 非同期のDBセッション
 
     Returns:
-        作成したTodo
+    - 作成したTodo
     """
     stmt = (
         insert(todo_models.Todo)
@@ -51,11 +51,11 @@ async def read_todo_list(
     - ログインユーザーのTodo一覧を取得する
 
     Args:
-        user_id: ユーザーID
-        db: 非同期のDBセッション
+    - user_id: ユーザーID
+    - db: 非同期のDBセッション
 
     Returns:
-        Todo一覧
+    - Todo一覧
     """
     stmt = select(todo_models.Todo).where(todo_models.Todo.user_id == user_id)
     result = await db.scalars(stmt)
@@ -73,12 +73,12 @@ async def read_todo_detail(
     - ログインユーザーのTodo詳細を取得する
 
     Args:
-        todo_id: TodoID
-        user_id: ユーザーID
-        db: 非同期のDBセッション
+    - todo_id: TodoID
+    - user_id: ユーザーID
+    - db: 非同期のDBセッション
 
     Returns:
-        Todo詳細
+    - Todo詳細
     """
     stmt = select(todo_models.Todo).where(
         todo_models.Todo.user_id == user_id,
@@ -103,12 +103,12 @@ async def update_todo(
     - 部分更新が可能
 
     Args:
-        target_todo: 更新したいTodoモデル
-        update_todo_data: Todoを更新するための情報
-        db: 非同期のDBセッション
+    - target_todo: 更新したいTodoモデル
+    - update_todo_data: Todoを更新するための情報
+    - db: 非同期のDBセッション
 
     Returns:
-        更新したTodo
+    - 更新したTodo
     """
     stmt = (
         update(todo_models.Todo)
@@ -129,8 +129,8 @@ async def delete_todo(
     - ログインユーザーのTodoを削除する
 
     Args:
-        todo_id: 削除したいTodoのID
-        db: 非同期のDBセッション
+    - todo_id: 削除したいTodoのID
+    - db: 非同期のDBセッション
     """
     stmt = delete(todo_models.Todo).where(todo_models.Todo.id == todo_id)
     await db.execute(stmt)

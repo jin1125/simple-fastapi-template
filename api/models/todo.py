@@ -18,13 +18,14 @@ class Todo(Base):
     - DBのテーブルを表すSQLAlchemy(ORM)モデルを定義
 
     Attributes:
-        __tablename__: テーブル名を定義
-        id: IDのカラム
-        detail: 詳細のカラム
-        due_date: 期限のカラム
-        done: 完了フラグのカラム
-        user_id: ユーザーIDのカラム(外部キー)
-        user: usersテーブルと関連付けするように指定
+    - __tablename__: テーブル名を定義
+
+    - id: IDのカラム
+    - detail: 詳細のカラム
+    - due_date: 期限のカラム
+    - done: 完了フラグのカラム
+    - user_id: ユーザーIDのカラム(外部キー)
+    - user: usersテーブルと関連付けするように指定
     """
 
     __tablename__: str = "todos"

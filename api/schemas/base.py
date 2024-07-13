@@ -9,7 +9,7 @@ class BaseSchema(BaseModel):
     - 全スキーマで共通の定義を行う(継承元)
 
     Attributes:
-        model_config: Pydanticモデルの設定
+    - model_config: Pydanticモデルの設定
     """
 
     model_config = ConfigDict(from_attributes=True)

@@ -15,33 +15,33 @@ class Settings(BaseSettings):
     - 環境変数が定義されていない場合、クラス変数が使用される
 
     Attributes:
-        access_token_expire_minutes: アクセストークンの有効時間(分)
-        algorithm: jwtの署名で使用するアルゴリズム
-        app_title: アプリのタイトル
-        cors_credentials: Cookieの共有を許可するか
-        cors_headers: クロスオリジンリクエストに対応するHTTPリクエストヘッダ
-        cors_methods: クロスオリジンリクエストを許可するHTTPメソッド
-        cors_origins: クロスオリジンリクエストを許可するオリジン
-        db_echo: SQLのログを出力するか
-        db_port: DBのポート番号
-        docs_url: SwaggerUIのURL
-        postgres_db: PostgreSQLのデータベース名
-        postgres_alembic_host: PostgreSQLのalembicでのホスト名
-        postgres_host: PostgreSQLのホスト名
-        postgres_password: PostgreSQLのパスワード
-        postgres_port: PostgreSQLのポート番号
-        postgres_user: PostgreSQLのユーザ名
-        test_db_echo: テスト時にSQLのログを出力するか
-        test_postgres_db: テスト用のPostgreSQLのデータベース名
-        test_postgres_host: テスト用のPostgreSQLのホスト名
-        test_postgres_password: テスト用のPostgreSQLのパスワード
-        test_postgres_port: テスト用のPostgreSQLのポート番号
-        test_postgres_user: テスト用のPostgreSQLのユーザ名
-        redoc_url: ReDocのURL
-        secret_key: jwtで使用するアルゴリズムに適したキー
-        token_url: OAuth2PasswordBearerのtokenUrlパラメータに定義するURL
+    - access_token_expire_minutes: アクセストークンの有効時間(分)
+    - algorithm: jwtの署名で使用するアルゴリズム
+    - app_title: アプリのタイトル
+    - cors_credentials: Cookieの共有を許可するか
+    - cors_headers: クロスオリジンリクエストに対応するHTTPリクエストヘッダ
+    - cors_methods: クロスオリジンリクエストを許可するHTTPメソッド
+    - cors_origins: クロスオリジンリクエストを許可するオリジン
+    - db_echo: SQLのログを出力するか
+    - db_port: DBのポート番号
+    - docs_url: SwaggerUIのURL
+    - postgres_db: PostgreSQLのデータベース名
+    - postgres_alembic_host: PostgreSQLのalembicでのホスト名
+    - postgres_host: PostgreSQLのホスト名
+    - postgres_password: PostgreSQLのパスワード
+    - postgres_port: PostgreSQLのポート番号
+    - postgres_user: PostgreSQLのユーザ名
+    - test_db_echo: テスト時にSQLのログを出力するか
+    - test_postgres_db: テスト用のPostgreSQLのデータベース名
+    - test_postgres_host: テスト用のPostgreSQLのホスト名
+    - test_postgres_password: テスト用のPostgreSQLのパスワード
+    - test_postgres_port: テスト用のPostgreSQLのポート番号
+    - test_postgres_user: テスト用のPostgreSQLのユーザ名
+    - redoc_url: ReDocのURL
+    - secret_key: jwtで使用するアルゴリズムに適したキー
+    - token_url: OAuth2PasswordBearerのtokenUrlパラメータに定義するURL
 
-        model_config: クラスの設定を定義
+    - model_config: クラスの設定を定義
     """
 
     access_token_expire_minutes: int = 30
@@ -77,7 +77,7 @@ class Settings(BaseSettings):
         - URLを生成
 
         Returns:
-            PostgreSQLへの非同期接続情報(URL)
+        - PostgreSQLへの非同期接続情報(URL)
         """
         return sqlalchemy.engine.url.URL.create(
             drivername="postgresql+asyncpg",
@@ -97,7 +97,7 @@ class Settings(BaseSettings):
         - tokenUrlに値を送信して、認証用のトークンを取得する
 
         Returns:
-            OAuth2PasswordBearerクラスのインスタンス
+        - OAuth2PasswordBearerクラスのインスタンス
         """
         return OAuth2PasswordBearer(tokenUrl=self.token_url)
 
@@ -117,7 +117,7 @@ def get_settings() -> Settings:
     - lru_cacheデコレータによって、Settingsクラスは1度だけインスタンス化される
 
     Returns:
-        Settingsクラスのインスタンス
+    - Settingsクラスのインスタンス
     """
     return Settings()
 

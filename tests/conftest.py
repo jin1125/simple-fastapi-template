@@ -37,7 +37,7 @@ def event_loop() -> Generator:
     イベントループをオーバーライドするフィクスチャ
 
     Yields:
-        イベントループ
+    - イベントループ
     """
     loop = asyncio.new_event_loop()
     yield loop
@@ -75,7 +75,7 @@ async def async_client() -> AsyncGenerator:
     - テスト用の非同期HTTPクライアントを提供
 
     Yields:
-        非同期HTTPクライアント
+    - 非同期HTTPクライアント
     """
     app.dependency_overrides[get_db] = _get_test_db
 
@@ -88,7 +88,7 @@ async def _get_test_db() -> AsyncGenerator:
     テスト用の非同期データベースセッションを取得
 
     Yields:
-        非同期データベースセッション
+    - 非同期データベースセッション
     """
     async_test_session: sessionmaker = sessionmaker(  # type: ignore
         bind=async_test_engine,
@@ -106,10 +106,10 @@ async def access_token(async_client: AsyncClient) -> str:
     テスト用ユーザーのアクセストークンを提供するフィクスチャ
 
     Args:
-        async_client: 非同期HTTPクライアント
+    - async_client: 非同期HTTPクライアント
 
     Returns:
-        アクセストークン
+    - アクセストークン
     """
     await async_client.post(
         "/user/create",
@@ -136,8 +136,8 @@ async def factory_todo(async_client: AsyncClient, access_token: str) -> None:
     テスト用のTodoデータを作成するフィクスチャ
 
     Args:
-        async_client: 非同期HTTPクライアント
-        access_token:
+    - async_client: 非同期HTTPクライアント
+    - access_token:
     """
     await async_client.post(
         "/todo/create",

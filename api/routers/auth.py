@@ -31,11 +31,11 @@ async def authentication_token(
     - ログイン時に利用する
 
     Args:
-        form_data: 入力されたフォームデータ
-        db: 非同期のDBセッション
+    - form_data: 入力されたフォームデータ
+    - db: 非同期のDBセッション
 
     Returns:
-        アクセストークン
+    - アクセストークン
     """
     authenticated_user: user_models.User = (
         await auth_services.authenticate_user(form_data, db)

@@ -29,10 +29,10 @@ def get_hashed_password(plain_password: str) -> str:
     - プレーンパスワードをハッシュ化する
 
     Args:
-        plain_password: プレーンパスワード
+    - plain_password: プレーンパスワード
 
     Returns:
-        ハッシュ化パスワード
+    - ハッシュ化パスワード
     """
     return pwd_context.hash(plain_password)
 
@@ -44,11 +44,11 @@ def verify_password(plain_password: str, hashed_password: str) -> bool:
     - プレーンパスワードとハッシュ化パスワードが一致するか確認
 
     Args:
-        plain_password: プレーンパスワード
-        hashed_password: ハッシュ化パスワード
+    - plain_password: プレーンパスワード
+    - hashed_password: ハッシュ化パスワード
 
     Returns:
-        True/False
+    - True/False
     """
     return pwd_context.verify(plain_password, hashed_password)
 
@@ -63,10 +63,10 @@ def get_encode_jwt(payload: dict[str, str | datetime]) -> str:
         - トークンを署名するためのアルゴリズム
 
     Args:
-        payload: エンコード(符号化)したいデータ
+    - payload: エンコード(符号化)したいデータ
 
     Returns:
-        アクセストークン
+    - アクセストークン
     """
     try:
         access_token = jwt.encode(
@@ -93,10 +93,10 @@ def get_decode_jwt(token: str) -> dict[str, Any]:
         - トークンを署名したアルゴリズム
 
     Args:
-        token: デコード(復号化)したいトークン
+    - token: デコード(復号化)したいトークン
 
     Returns:
-        ペイロード
+    - ペイロード
     """
     try:
         payload = jwt.decode(
@@ -124,11 +124,11 @@ async def get_user_by_user_name(
     - 存在した場合は、ユーザーを取得
 
     Args:
-        username: ユーザー名
-        db: 非同期のDBセッション
+    - username: ユーザー名
+    - db: 非同期のDBセッション
 
     Returns:
-        ユーザーモデル
+    - ユーザーモデル
     """
     stmt = select(user_models.User).where(
         user_models.User.username == username
@@ -156,11 +156,11 @@ async def authenticate_user(
     - 認証できた場合、対象のユーザーを取得する
 
     Args:
-        form_data: 入力されたフォームデータ
-        db: 非同期のDBセッション
+    - form_data: 入力されたフォームデータ
+    - db: 非同期のDBセッション
 
     Returns:
-        ログインユーザーモデル
+    - ログインユーザーモデル
     """
     authenticated_user: user_models.User = await get_user_by_user_name(
         form_data.username,
@@ -190,10 +190,10 @@ def create_access_token(username: str) -> str:
     - ペイロードをもとに、アクセストークンを生成する
 
     Args:
-        username: 認証されたユーザー名
+    - username: 認証されたユーザー名
 
     Returns:
-        アクセストークン
+    - アクセストークン
     """
     access_token_expires: datetime = datetime.now() + timedelta(
         minutes=settings.access_token_expire_minutes

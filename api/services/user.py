@@ -26,11 +26,11 @@ async def create_user(
     - パスワードをハッシュ化して、ユーザーを作成する
 
     Args:
-        create_user_data: ユーザーを作成するための情報
-        db: 非同期のDBセッション
+    - create_user_data: ユーザーを作成するための情報
+    - db: 非同期のDBセッション
 
     Returns:
-        作成したユーザー
+    - 作成したユーザー
     """
     hashed_password: str = auth_services.get_hashed_password(
         create_user_data.password
@@ -57,11 +57,11 @@ async def get_user_me(
     ログインユーザーを取得
 
     Args:
-        token: 認証用のトークン
-        db: 非同期のDBセッション
+    - token: 認証用のトークン
+    - db: 非同期のDBセッション
 
     Returns:
-        ログインユーザー
+    - ログインユーザー
     """
     payload: dict[str, Any] = auth_services.get_decode_jwt(token)
     username: Any | None = payload.get("sub")
@@ -85,12 +85,12 @@ async def update_user(
     - 部分更新が可能
 
     Args:
-        user_me: 更新したいログインユーザーモデル
-        update_user_data: ログインユーザーを更新するための情報
-        db: 非同期のDBセッション
+    - user_me: 更新したいログインユーザーモデル
+    - update_user_data: ログインユーザーを更新するための情報
+    - db: 非同期のDBセッション
 
     Returns:
-        更新したユーザー
+    - 更新したユーザー
     """
     for key, value in update_user_data.model_dump(exclude_unset=True).items():
         if key == "password":
@@ -112,8 +112,8 @@ async def delete_user(
     ログインユーザーを削除
 
     Args:
-        user_me: 削除したいログインユーザーモデル
-        db: 非同期のDBセッション
+    - user_me: 削除したいログインユーザーモデル
+    - db: 非同期のDBセッション
     """
     stmt = delete(user_models.User).where(user_models.User.id == user_me.id)
     await db.execute(stmt)

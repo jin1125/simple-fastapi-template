@@ -11,8 +11,8 @@ class UserBase(base.BaseSchema):
     - ユーザー関連の共通スキーマの定義を行う(継承元)
 
     Attributes:
-        username: ユーザー名のフィールド
-        email: メールアドレスのフィールド
+    - username: ユーザー名のフィールド
+    - email: メールアドレスのフィールド
     """
 
     username: str = Field(description="ユーザー名")
@@ -26,10 +26,10 @@ class UserCreate(UserBase):
     - ユーザーの作成時に定義するスキーマ
 
     Attributes:
-        password: パスワードのフィールド
+    - password: パスワードのフィールド
 
     Note:
-        UserBaseクラスを継承
+    - UserBaseクラスを継承
     """
 
     password: str = Field(description="パスワード")
@@ -42,10 +42,10 @@ class UserStore(UserBase):
     - ユーザーのDB保存時に定義するスキーマ
 
     Attributes:
-        hashed_password: ハッシュ化パスワードのフィールド
+    - hashed_password: ハッシュ化パスワードのフィールド
 
     Note:
-        UserBaseクラスを継承
+    - UserBaseクラスを継承
     """
 
     hashed_password: str = Field(description="ハッシュ化パスワード")
@@ -58,12 +58,12 @@ class UserUpdate(base.BaseSchema):
     - ユーザーの更新時に定義するスキーマ
 
     Attributes:
-        username: ユーザー名のフィールド
-        email: メールアドレスのフィールド
-        password: パスワードのフィールド
+    - username: ユーザー名のフィールド
+    - email: メールアドレスのフィールド
+    - password: パスワードのフィールド
 
     Note:
-        UserBaseクラスを継承
+    - UserBaseクラスを継承
     """
 
     username: str | None = Field(default=None, description="ユーザー名")
@@ -78,11 +78,11 @@ class User(UserBase):
     - ユーザー本体に定義するスキーマ
 
     Attributes:
-        id: IDのフィールド
-        hashed_password: ハッシュ化パスワードのフィールド
+    - id: IDのフィールド
+    - hashed_password: ハッシュ化パスワードのフィールド
 
     Note:
-        UserBaseクラスを継承
+    - UserBaseクラスを継承
     """
 
     id: int = Field(description="ID", ge=1)

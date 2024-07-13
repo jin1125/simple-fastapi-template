@@ -32,12 +32,12 @@ async def create_todo(
     Todoを作成
 
     Args:
-        create_todo_data: Todoを作成するための情報
-        user_me: ログインユーザー
-        db: 非同期のDBセッション
+    - create_todo_data: Todoを作成するための情報
+    - user_me: ログインユーザー
+    - db: 非同期のDBセッション
 
     Returns:
-        作成したTodo
+    - 作成したTodo
     """
     return await todo_services.create_todo(create_todo_data, user_me.id, db)
 
@@ -55,11 +55,11 @@ async def read_todo_list(
     Todo一覧を取得
 
     Args:
-        user_me: ログインユーザー
-        db: 非同期のDBセッション
+    - user_me: ログインユーザー
+    - db: 非同期のDBセッション
 
     Returns:
-        Todo一覧
+    - Todo一覧
     """
     return await todo_services.read_todo_list(user_me.id, db)
 
@@ -78,12 +78,12 @@ async def read_todo_detail(
     Todo詳細を取得
 
     Args:
-        todo_id: 詳細を取得したいTodoID
-        user_me: ログインユーザー
-        db: 非同期のDBセッション
+    - todo_id: 詳細を取得したいTodoID
+    - user_me: ログインユーザー
+    - db: 非同期のDBセッション
 
     Returns:
-        Todo詳細
+    - Todo詳細
     """
     return await todo_services.read_todo_detail(todo_id, user_me.id, db)
 
@@ -103,13 +103,13 @@ async def update_todo(
     Todoを更新
 
     Args:
-        todo_id: 更新したいTodoID
-        user_me: ログインユーザー
-        update_todo_data: Todoを更新するための情報
-        db: 非同期のDBセッション
+    - todo_id: 更新したいTodoID
+    - user_me: ログインユーザー
+    - update_todo_data: Todoを更新するための情報
+    - db: 非同期のDBセッション
 
     Returns:
-        Todo詳細
+    - Todo詳細
     """
     target_todo: todo_models.Todo = await todo_services.read_todo_detail(
         todo_id,
@@ -138,8 +138,8 @@ async def delete_todo(
     Todoを削除
 
     Args:
-        todo_id: 削除したいTodoID
-        user_me: ログインユーザー
-        db: 非同期のDBセッション
+    - todo_id: 削除したいTodoID
+    - user_me: ログインユーザー
+    - db: 非同期のDBセッション
     """
     await todo_services.delete_todo(todo_id, db)
