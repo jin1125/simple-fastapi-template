@@ -20,7 +20,6 @@ ASYNC_TEST_DB_URL = (
     .set(
         database=settings.test_postgres_db,
         host=settings.test_postgres_host,
-        port=settings.test_postgres_port,
         username=settings.test_postgres_user,
         password=settings.test_postgres_password,
     )

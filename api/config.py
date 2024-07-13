@@ -29,13 +29,11 @@ class Settings(BaseSettings):
     - postgres_alembic_host: PostgreSQLのalembicでのホスト名
     - postgres_host: PostgreSQLのホスト名
     - postgres_password: PostgreSQLのパスワード
-    - postgres_port: PostgreSQLのポート番号
     - postgres_user: PostgreSQLのユーザ名
     - test_db_echo: テスト時にSQLのログを出力するか
     - test_postgres_db: テスト用のPostgreSQLのデータベース名
     - test_postgres_host: テスト用のPostgreSQLのホスト名
     - test_postgres_password: テスト用のPostgreSQLのパスワード
-    - test_postgres_port: テスト用のPostgreSQLのポート番号
     - test_postgres_user: テスト用のPostgreSQLのユーザ名
     - redoc_url: ReDocのURL
     - secret_key: jwtで使用するアルゴリズムに適したキー
@@ -58,13 +56,11 @@ class Settings(BaseSettings):
     postgres_alembic_host: str = "localhost"
     postgres_host: str = "db"
     postgres_password: str = "postgres"
-    postgres_port: int = 5432
     postgres_user: str = "postgres"
     test_db_echo: bool = False
     test_postgres_db: str = "test_db"
     test_postgres_host: str = "test-db"
     test_postgres_password: str = "password"
-    test_postgres_port: int = 5432
     test_postgres_user: str = "test_user"
     redoc_url: str | None = "/redoc"
     secret_key: str = ""
@@ -83,7 +79,7 @@ class Settings(BaseSettings):
             drivername="postgresql+asyncpg",
             database=self.postgres_db,
             host=self.postgres_host,
-            port=self.postgres_port,
+            port=5432,
             username=self.postgres_user,
             password=self.postgres_password,
         )
