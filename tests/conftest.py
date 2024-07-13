@@ -77,7 +77,7 @@ async def async_client() -> AsyncGenerator:
     Yields:
     - 非同期HTTPクライアント
     """
-    app.dependency_overrides[get_db] = _get_test_db
+    app.dependency_overrides[get_db] = _get_test_db  # type:ignore
 
     async with AsyncClient(app=app, base_url="http://test") as client:
         yield client
