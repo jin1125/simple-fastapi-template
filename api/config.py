@@ -18,10 +18,10 @@ class Settings(BaseSettings):
         access_token_expire_minutes: アクセストークンの有効時間(分)
         algorithm: jwtの署名で使用するアルゴリズム
         app_title: アプリのタイトル
-        cors_credentials: CORS設定のCookieの共有を許可するかどうか
-        cors_headers: CORS設定のクロスオリジンリクエストに対応するHTTPリクエストヘッダのリスト
-        cors_methods: CORS設定のクロスオリジンリクエストを許可するHTTPメソッドのリスト
-        cors_origins: CORS設定のクロスオリジンリクエストを許可するオリジンのリスト
+        cors_credentials: Cookieの共有を許可するかどうか
+        cors_headers: クロスオリジンリクエストに対応するHTTPリクエストヘッダのリスト
+        cors_methods: クロスオリジンリクエストを許可するHTTPメソッドのリスト
+        cors_origins: クロスオリジンリクエストを許可するオリジンのリスト
         db_echo: SQLのログを出力するかどうか
         db_port: DBのポート番号
         docs_url: SwaggerUIのURL設定
