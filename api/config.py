@@ -24,7 +24,7 @@ class Settings(BaseSettings):
         cors_origins: クロスオリジンリクエストを許可するオリジンのリスト
         db_echo: SQLのログを出力するかどうか
         db_port: DBのポート番号
-        docs_url: SwaggerUIのURL設定
+        docs_url: SwaggerUIのURL
         postgres_db: PostgreSQLのデータベース名
         postgres_alembic_host: PostgreSQLのalembicでのホスト名
         postgres_host: PostgreSQLのホスト名
