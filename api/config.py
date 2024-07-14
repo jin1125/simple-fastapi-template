@@ -25,18 +25,18 @@ class Settings(BaseSettings):
     - db_echo: SQLのログを出力するか
     - db_port: DBのポート番号
     - docs_url: SwaggerUIのURL
-    - postgres_db: PostgreSQLのデータベース名
     - postgres_alembic_host: PostgreSQLのalembicでのホスト名
+    - postgres_db: PostgreSQLのデータベース名
     - postgres_host: PostgreSQLのホスト名
     - postgres_password: PostgreSQLのパスワード
     - postgres_user: PostgreSQLのユーザ名
+    - redoc_url: ReDocのURL
+    - secret_key: jwtで使用するアルゴリズムに適したキー
     - test_db_echo: テスト時にSQLのログを出力するか
     - test_postgres_db: テスト用のPostgreSQLのデータベース名
     - test_postgres_host: テスト用のPostgreSQLのホスト名
     - test_postgres_password: テスト用のPostgreSQLのパスワード
     - test_postgres_user: テスト用のPostgreSQLのユーザ名
-    - redoc_url: ReDocのURL
-    - secret_key: jwtで使用するアルゴリズムに適したキー
     - token_url: OAuth2PasswordBearerのtokenUrlパラメータに定義するURL
 
     - model_config: クラスの設定を定義
@@ -52,18 +52,18 @@ class Settings(BaseSettings):
     db_echo: bool = False
     db_port: int = 5432
     docs_url: str | None = "/docs"
-    postgres_db: str = "postgres"
     postgres_alembic_host: str = "localhost"
+    postgres_db: str = "postgres"
     postgres_host: str = "db"
     postgres_password: str = "postgres"
     postgres_user: str = "postgres"
+    redoc_url: str | None = "/redoc"
+    secret_key: str = ""
     test_db_echo: bool = False
     test_postgres_db: str = "test_db"
     test_postgres_host: str = "test-db"
     test_postgres_password: str = "password"
     test_postgres_user: str = "test_user"
-    redoc_url: str | None = "/redoc"
-    secret_key: str = ""
     token_url: str = "token"
 
     def get_async_url(self) -> URL:
