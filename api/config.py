@@ -61,7 +61,7 @@ class Settings(BaseSettings):
     secret_key: str = ""
     test_db_echo: bool = False
     test_postgres_db: str = "test_db"
-    test_postgres_host: str = "test-db"
+    test_postgres_host: str = "test_db"
     test_postgres_password: str = "password"
     test_postgres_user: str = "test_user"
     token_url: str = "token"

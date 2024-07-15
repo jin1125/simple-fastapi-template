@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
 
     services:
-      test-db:
+      test_db:
         image: postgres:latest
         env:
           POSTGRES_DB: test_db
