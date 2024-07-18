@@ -12,6 +12,6 @@ COPY pyproject.toml poetry.lock ./
 
 RUN poetry config virtualenvs.create false
 
-RUN if [ -f pyproject.toml ]; then poetry install --no-root; fi
+RUN poetry install --no-root
 
-ENTRYPOINT ["uvicorn", "api.main:app", "--host", "0.0.0.0", "--reload"]
+ENTRYPOINT ["fastapi", "dev", "api/main.py", "--host", "0.0.0.0"]
