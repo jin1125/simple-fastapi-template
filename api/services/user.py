@@ -3,7 +3,7 @@ import logging
 from typing import Annotated, Any
 
 from fastapi import Depends
-from sqlalchemy import delete, insert
+from sqlalchemy import delete, insert, update
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from api.config import settings
@@ -78,7 +78,7 @@ async def update_user(
     user_me: user_models.User,
     update_user_data: user_schemas.UserUpdate,
     db: AsyncSession,
-) -> user_models.User:
+) -> user_models.User | None:
     """
     ログインユーザーを更新
 
@@ -92,16 +92,21 @@ async def update_user(
     Returns:
     - 更新したユーザー
     """
-    for key, value in update_user_data.model_dump(exclude_unset=True).items():
-        if key == "password":
-            hashed_password: str = auth_services.get_hashed_password(value)
-            setattr(user_me, "hashed_password", hashed_password)
-        else:
-            setattr(user_me, key, value)
-    db.add(user_me)
-    await db.commit()
-    await db.refresh(user_me)
-    return user_me
+    update_data: dict = update_user_data.model_dump(exclude_unset=True)
+
+    if "password" in update_data:
+        update_data["hashed_password"] = auth_services.get_hashed_password(
+            update_data["password"]
+        )
+        del update_data["password"]
+
+    stmt = (
+        update(user_models.User)
+        .where(user_models.User.id == user_me.id)
+        .values(**update_data)
+        .returning(user_models.User)
+    )
+    return await db.scalar(stmt)
 
 
 async def delete_user(
