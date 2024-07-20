@@ -39,6 +39,11 @@ jobs:
           pip install poetry
           poetry install --no-root
 
+      - name: Run FastAPI
+        run: |
+          poetry run fastapi dev api/main.py --host 0.0.0.0 &
+          until curl -s http://127.0.0.1:8000; do sleep 1; done
+
       - name: Run tests
         env:
           TEST_POSTGRES_HOST: 127.0.0.1
